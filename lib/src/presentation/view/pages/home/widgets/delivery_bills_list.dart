@@ -58,7 +58,9 @@ class DeliveryBillsList extends StatelessWidget {
                     ],
                   );
                 },
-                orElse: () => const SliverToBoxAdapter(child: SizedBox.shrink()),
+                error: (value) =>
+                    SliverToBoxAdapter(child: Center(child: TextWidget(text: S.of(context).unknown_error_message))),
+                orElse: () => const SliverToBoxAdapter(child: Center(child: CircularProgressIndicator())),
               );
             },
           ),
